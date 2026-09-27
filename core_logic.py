@@ -217,12 +217,6 @@ def classify_risk_tier(occupancy_pct: float) -> str:
     return evaluate_tier(occupancy_pct)
 
 
-def format_ascii_meter(val: float, length: int = 10) -> str:
-    """Module 1 & 2: String manipulation & Number formatting."""
-    filled = int(round(length * (val / 100.0)))
-    return f"[{'█' * filled}{'░' * (length - filled)}] {val:.1f}%"
-
-
 def filter_congested_zones(zones_list: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
     Module 2 Requirement: Uses filter() and a lambda function
@@ -255,7 +249,6 @@ def enrich_zones_with_map(zones_list: List[Dict[str, Any]]) -> List[Dict[str, An
                 "predicted_occupancy": z["predicted_occupancy"],
                 "risk_tier": classify_risk_tier(z["predicted_occupancy"]),
                 "badge": badge_lookup[classify_risk_tier(z["predicted_occupancy"])],
-                "ascii_meter": format_ascii_meter(z["predicted_occupancy"]),
                 "capacity": ZONE_METADATA[z["zone"]]["capacity"],
                 "type": ZONE_METADATA[z["zone"]]["type"],
                 "coords": ZONE_METADATA[z["zone"]]["coords"],
