@@ -445,7 +445,7 @@ def main():
     ])
 
     with tab_eval:
-        st.markdown("#### Random Forest Evaluation per Zone")
+        st.markdown("#### Multiple Linear Regression Evaluation per Zone")
         metrics_dict = {
             z: metrics.to_dict()
             for z, metrics in model_pipeline.metrics_container.items()

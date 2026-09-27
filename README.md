@@ -28,7 +28,7 @@ mini_project_ppca_1/
 | **Module 2** | Decision Making, Loops & Functions | Conditional `if-elif-else`, `while-break` loops, inner functions (`classify_risk_tier`), anonymous `lambda`, `map()`, and `filter()`. |
 | **Module 3** | Object-Oriented Programming (OOP) | `BasePredictor(ABC)` abstract class/interface, `CampusPredictor` derived class, `super()`, encapsulation (private `__feature_cols`, protected `_models`), inner class `ModelMetrics`. |
 | **Module 4** | Exception Handling & Packages | Custom exception `ZoneNotFoundError`, defensive `assert` checks, module export `__all__`. |
-| **Module 5** | Data Handling & Machine Learning | `with open()` file handling, `pickle` serialization/deserialization, Pandas & NumPy data wrangling, Scikit-Learn `RandomForestRegressor`, chronological train/test splitting (`shuffle=False`), $MAE$ and $R^2$ evaluation. |
+| **Module 5** | Data Handling & Machine Learning | `with open()` file handling, `pickle` serialization/deserialization, Pandas & NumPy data wrangling, Scikit-Learn `LinearRegression`, chronological train/test splitting (`shuffle=False`), $MAE$ and $R^2$ evaluation. |
 | **Module 6** | GUI, Regular Expressions & Recommender | Clean executive white Streamlit dashboard, Plotly 2D spatial density map, Regex time validation (`re.match`), rule-based alternate rerouting engine. |
 
 ---

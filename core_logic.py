@@ -26,7 +26,7 @@ import re
 from typing import Any, Dict, List, Set, Tuple
 import numpy as np
 import pandas as pd
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
 
@@ -305,10 +305,10 @@ class CampusPredictor(BasePredictor):
 
     def __init__(self):
         # Module 3: Calling parent constructor using super()
-        super().__init__(model_name="CampusRandomForestEnsemble")
+        super().__init__(model_name="CampusLinearRegressionPipeline")
         
         # Encapsulation: Protected dictionary for trained models
-        self._models: Dict[str, RandomForestRegressor] = {}
+        self._models: Dict[str, LinearRegression] = {}
         
         # Encapsulation: Private feature list (name mangling: _CampusPredictor__feature_cols)
         self.__feature_cols: List[str] = ["hour", "minute", "day_of_week", "occupancy_pct"]
@@ -318,7 +318,7 @@ class CampusPredictor(BasePredictor):
 
     # Module 3: Method Overriding (Polymorphism)
     def train(self, df: pd.DataFrame) -> None:
-        """Trains an explainable Random Forest Regressor per zone."""
+        """Trains an explainable Multiple Linear Regression model per zone."""
         for zone in CAMPUS_ZONES:
             zone_df = df[df["zone"] == zone]
             X = zone_df[self.__feature_cols]
@@ -329,8 +329,8 @@ class CampusPredictor(BasePredictor):
                 X, y, test_size=0.20, random_state=42, shuffle=False
             )
 
-            # Lightweight explainable Random Forest
-            reg = RandomForestRegressor(n_estimators=35, max_depth=6, random_state=42)
+            # Standard Multiple Linear Regression (Module 5)
+            reg = LinearRegression()
             reg.fit(X_train, y_train)
 
             # Evaluation
